@@ -87,8 +87,8 @@ class FileUploadProgress extends React.Component {
   }
 
   _getFormData() {
-    if (this.props.getFormData) {
-      return this.props.getFormData();
+    if (this.props.formGetter) {
+      return this.props.formGetter();
     }
     return new FormData(React.findDOMNode(this.refs.form));
   }
@@ -152,7 +152,7 @@ class FileUploadProgress extends React.Component {
 
 FileUploadProgress.propTypes = {
   url: React.PropTypes.string.isRequired,
-  getFormData: React.PropTypes.func,
+  formGetter: React.PropTypes.func,
   formRnederer: React.PropTypes.func,
   progressRnederer: React.PropTypes.func,
   formCustomeizer: React.PropTypes.func,

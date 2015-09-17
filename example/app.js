@@ -97,11 +97,8 @@ class App extends React.Component {
     };
   }
 
-  getFormData(){
-    let d = document.getElementById('customForm');
-    let f = new FormData(document.getElementById('customForm'));
-    console.log(d, f);
-    return f;
+  formGetter(){
+    return new FormData(document.getElementById('customForm'));
   }
 
   customFormRenderer(onSubmit){
@@ -170,7 +167,7 @@ class App extends React.Component {
           onLoad={ (e, request) => {console.log('load', e, request);}}
           onError={ (e, request) => {console.log('error', e, request);}}
           onAbort={ (e, request) => {console.log('abort', e, request);}}
-          getFormData={this.getFormData.bind(this)}
+          formGetter={this.formGetter.bind(this)}
           formRnederer={this.customFormRenderer.bind(this)}
           progressRnederer={this.customProgressRenderer.bind(this)}
           />

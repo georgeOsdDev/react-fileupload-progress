@@ -66,10 +66,6 @@ class FileUploadProgress extends React.Component {
     });
   }
 
-  getFormData() {
-    return new FormData(React.findDOMNode(this.refs.form));
-  }
-
   onSubmit(e){
     e.preventDefault();
     this.setState({
@@ -90,8 +86,15 @@ class FileUploadProgress extends React.Component {
     );
   }
 
+  _getFormData() {
+    if (this.props.getFormData) {
+      return this.props.getFormData();
+    }
+    return new FormData(React.findDOMNode(this.refs.form));
+  }
+
   _doUpload() {
-    let form = this.getFormData();
+    let form = this._getFormData();
     let req = new XMLHttpRequest();
     req.open('POST', this.props.url);
 
@@ -149,6 +152,7 @@ class FileUploadProgress extends React.Component {
 
 FileUploadProgress.propTypes = {
   url: React.PropTypes.string.isRequired,
+  getFormData: React.PropTypes.func,
   formRnederer: React.PropTypes.func,
   progressRnederer: React.PropTypes.func,
   formCustomeizer: React.PropTypes.func,

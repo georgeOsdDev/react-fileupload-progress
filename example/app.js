@@ -10,7 +10,7 @@ const styles = {
   progressWrapper: {
     height: '50px',
     marginTop: '10px',
-    width: '90%',
+    width: '400px',
     float:'left',
     overflow: 'hidden',
     backgroundColor: '#f5f5f5',
@@ -40,7 +40,7 @@ const styles = {
     cursor: 'pointer',
     background: '0 0',
     border: 0,
-    float: 'right',
+    float: 'left',
     fontSize: '21px',
     fontWeight: 700,
     lineHeight: 1,
@@ -97,14 +97,21 @@ class App extends React.Component {
     };
   }
 
+  getFormData(){
+    let d = document.getElementById('customForm');
+    let f = new FormData(document.getElementById('customForm'));
+    console.log(d, f);
+    return f;
+  }
+
   customFormRenderer(onSubmit){
     return (
-      <div style={{marginBottom: '15px'}}>
-        <label style={styles.bslabel} for="exampleInputFile">File input</label>
-        <input style={{display: 'block'}}type="file" id="exampleInputFile" />
+      <form id='customForm' style={{marginBottom: '15px'}}>
+        <label style={styles.bslabel} htmlFor="exampleInputFile">File input</label>
+        <input style={{display: 'block'}} type="file" name='file' id="exampleInputFile" />
         <p style={styles.bsHelp}>This is custom form.</p>
         <button type="button" style={styles.bsButton} onClick={onSubmit}>Upload</button>
-      </div>
+      </form>
     );
   }
 
@@ -163,6 +170,7 @@ class App extends React.Component {
           onLoad={ (e, request) => {console.log('load', e, request);}}
           onError={ (e, request) => {console.log('error', e, request);}}
           onAbort={ (e, request) => {console.log('abort', e, request);}}
+          getFormData={this.getFormData.bind(this)}
           formRnederer={this.customFormRenderer.bind(this)}
           progressRnederer={this.customProgressRenderer.bind(this)}
           />

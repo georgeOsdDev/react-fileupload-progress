@@ -7,7 +7,7 @@ const styles = {
   progressWrapper: {
     height: '10px',
     marginTop: '10px',
-    width: '90%',
+    width: '400px',
     float:'left',
     overflow: 'hidden',
     backgroundColor: '#f5f5f5',
@@ -37,7 +37,7 @@ const styles = {
     cursor: 'pointer',
     background: '0 0',
     border: 0,
-    float: 'right',
+    float: 'left',
     fontSize: '21px',
     fontWeight: 700,
     lineHeight: 1,
@@ -78,50 +78,14 @@ class FileUploadProgress extends React.Component {
     }, this._doUpload);
   }
 
-  renderProgressBar() {
-    if (this.state.hasError || this.state.progress > -1 ) {
-      let barStyle = Object.assign({}, styles.progressBar);
-      barStyle.width = this.state.progress + '%';
-
-      let message = (<span>Uploading ...</span>);
-      if (this.state.hasError) {
-        barStyle.backgroundColor = '#d9534f';
-        message = (<span style={{'color': '#a94442'}}>Failed to upload ...</span>);
-      }
-      if (this.state.progress === 100){
-        message = (<span >Successfully uploaded</span>);
-      }
-
-      return (
-        <div>
-          <div style={styles.progressWrapper}>
-            <div style={barStyle}></div>
-          </div>
-          <button style={styles.cancelButton} onClick={this.cancelUpload.bind(this)}>
-            <span>&times;</span>
-          </button>
-          <div style={{'clear':'left'}}>
-            {message}
-          </div>
-        </div>
-      );
-    }
-  }
-
   render() {
-    let form = this.props.formElement ? this.props.formElement : (
-      <form ref='form' method='post' action={this.props.url} onSubmit={this.onSubmit.bind(this)}>
-        <div style={{width: '400px'}}>
-          <input type='file' name='file' />
-          {this.renderProgressBar.bind(this)()}
-        </div>
-        <input type='submit' />
-      </form>
-    );
+    let formElement = this.props.formRnederer(this.onSubmit.bind(this));
+    let progessElement = this.props.progressRnederer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
 
     return (
       <div>
-        {form}
+        {formElement}
+        {progessElement}
       </div>
     );
   }
@@ -185,7 +149,8 @@ class FileUploadProgress extends React.Component {
 
 FileUploadProgress.propTypes = {
   url: React.PropTypes.string.isRequired,
-  formElement: React.PropTypes.element,
+  formRnederer: React.PropTypes.func,
+  progressRnederer: React.PropTypes.func,
   formCustomeizer: React.PropTypes.func,
   beforeSend: React.PropTypes.func,
   onProgress: React.PropTypes.func,
@@ -195,6 +160,47 @@ FileUploadProgress.propTypes = {
 };
 
 FileUploadProgress.defaultProps = {
+  formRnederer: (onSubmit) => {
+    return (
+      <form ref='form' method='post' onSubmit={onSubmit}>
+        <div>
+          <input type='file' name='file' />
+        </div>
+        <input type='submit' />
+      </form>
+    )
+  },
+  progressRnederer: (progress, hasError, cancelHandler) => {
+    if (hasError || progress > -1 ) {
+      let barStyle = Object.assign({}, styles.progressBar);
+      barStyle.width = progress + '%';
+
+      let message = (<span>Uploading ...</span>);
+      if (hasError) {
+        barStyle.backgroundColor = '#d9534f';
+        message = (<span style={{'color': '#a94442'}}>Failed to upload ...</span>);
+      }
+      if (progress === 100){
+        message = (<span >Successfully uploaded</span>);
+      }
+
+      return (
+        <div>
+          <div style={styles.progressWrapper}>
+            <div style={barStyle}></div>
+          </div>
+          <button style={styles.cancelButton} onClick={cancelHandler}>
+            <span>&times;</span>
+          </button>
+          <div style={{'clear':'left'}}>
+            {message}
+          </div>
+        </div>
+      );
+    } else {
+      return;
+    }
+  },
   formCustomeizer: (form) => {return form;},
   beforeSend: (request) => {return request;},
   onProgress: (e, request, progress) => {},

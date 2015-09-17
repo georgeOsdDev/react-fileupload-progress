@@ -1,0 +1,64 @@
+{
+  "name": "react-fileupload-progress",
+  "version": "0.1.0",
+  "description": "React component which render progress of fileupload",
+  "main": "index.js",
+  "scripts": {
+    "browser": "browser-sync start --files example/* --server example",
+    "watch:example": "watchify example/app.js -dv -o example/bundle.js",
+    "start:example": "npm run watch:example & npm run browser",
+    "test:local": "karma start",
+    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/georgeosddev/react-fileupload-progress"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "fileupload",
+    "progress"
+  ],
+  "author": "Takeharu.Oshida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/georgeosddev/react-fileupload-progress/issues"
+  },
+  "homepage": "https://github.com/georgeosddev/react-fileupload-progress",
+  "devDependencies": {
+    "karma-safari-launcher": "^0.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.2.0",
+    "karma-spec-reporter": "0.0.20",
+    "eslint-plugin-react": "^3.4.1",
+    "karma-cli": "^0.1.0",
+    "chai": "^3.2.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "mocha": "^2.3.2",
+    "browserify": "^11.1.0",
+    "eslint": "^1.4.3",
+    "watchify": "^3.4.0",
+    "karma-browserify": "^4.3.0",
+    "babelify": "^6.3.0",
+    "babel-eslint": "^4.1.2",
+    "karma": "^0.13.9",
+    "browser-sync": "^2.9.3",
+    "express": "^4.13.3",
+    "multer": "^1.0.3"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "compact": false
+        }
+      ]
+    ]
+  }
+}

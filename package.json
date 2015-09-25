@@ -46,7 +46,8 @@
     "karma": "^0.13.9",
     "browser-sync": "^2.9.3",
     "express": "^4.13.3",
-    "multer": "^1.0.3"
+    "multer": "^1.0.3",
+    "sinon": "^1.17.0"
   },
   "dependencies": {
     "react": "^0.13.3"

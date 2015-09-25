@@ -146,7 +146,7 @@ class FileUploadProgress extends React.Component {
     });
 
     this.props.beforeSend(req)
-              .send(this.props.formCustomeizer(form));
+              .send(this.props.formCustomizer(form));
   }
 }
 
@@ -155,7 +155,7 @@ FileUploadProgress.propTypes = {
   formGetter: React.PropTypes.func,
   formRnederer: React.PropTypes.func,
   progressRnederer: React.PropTypes.func,
-  formCustomeizer: React.PropTypes.func,
+  formCustomizer: React.PropTypes.func,
   beforeSend: React.PropTypes.func,
   onProgress: React.PropTypes.func,
   onLoad: React.PropTypes.func,
@@ -166,7 +166,7 @@ FileUploadProgress.propTypes = {
 FileUploadProgress.defaultProps = {
   formRnederer: (onSubmit) => {
     return (
-      <form ref='form' method='post' onSubmit={onSubmit}>
+      <form className='_react_fileupload_form_content' ref='form' method='post' onSubmit={onSubmit}>
         <div>
           <input type='file' name='file' />
         </div>
@@ -189,11 +189,11 @@ FileUploadProgress.defaultProps = {
       }
 
       return (
-        <div>
+        <div className='_react_fileupload_progress_content'>
           <div style={styles.progressWrapper}>
-            <div style={barStyle}></div>
+            <div className='_react_fileupload_progress_bar' style={barStyle}></div>
           </div>
-          <button style={styles.cancelButton} onClick={cancelHandler}>
+          <button className='_react_fileupload_progress_cancel' style={styles.cancelButton} onClick={cancelHandler}>
             <span>&times;</span>
           </button>
           <div style={{'clear':'left'}}>
@@ -205,7 +205,7 @@ FileUploadProgress.defaultProps = {
       return;
     }
   },
-  formCustomeizer: (form) => {return form;},
+  formCustomizer: (form) => {return form;},
   beforeSend: (request) => {return request;},
   onProgress: (e, request, progress) => {},
   onLoad: (e, request) => {},

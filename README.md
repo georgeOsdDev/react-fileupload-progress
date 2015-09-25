@@ -54,7 +54,7 @@ npm install --save react-fileupload-progress
   When third parameter is called, current `xhr` will be aborted.
   `React.PropTypes.func(progress, hasError, cancelHandler)`
 
-* `formCustomeizer`: Called before `xhr` send. You can add any custom form parameter(e.g: id, name, etc) with this method. Must return `form` given as argument.
+* `formCustomizer`: Called before `xhr` send. You can add any custom form parameter(e.g: id, name, etc) with this method. Must return `form` given as argument.
   `React.PropTypes.func(form) => {return form}`
 
 * `beforeSend`: Called before `xhr` send. You can customize `xhr`(e.g: HTTPHeader, etc) with this method. Must return `request` given as argument.

@@ -2,6 +2,7 @@
 
 import {EventEmitter} from 'events';
 import React from 'react';
+import objectAssign from 'object-assign';
 
 const styles = {
   progressWrapper: {
@@ -176,7 +177,7 @@ FileUploadProgress.defaultProps = {
   },
   progressRnederer: (progress, hasError, cancelHandler) => {
     if (hasError || progress > -1 ) {
-      let barStyle = Object.assign({}, styles.progressBar);
+      let barStyle = objectAssign({}, styles.progressBar);
       barStyle.width = progress + '%';
 
       let message = (<span>Uploading ...</span>);

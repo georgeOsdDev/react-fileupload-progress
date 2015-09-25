@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>React-fileupload-progress by georgeOsdDev</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>React-fileupload-progress</h1>
+        <p>React component of Input file and progress bar</p>
+
+        <p class="view"><a href="https://github.com/georgeOsdDev/react-fileupload-progress">View the Project on GitHub <small>georgeOsdDev/react-fileupload-progress</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/georgeOsdDev/react-fileupload-progress/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/georgeOsdDev/react-fileupload-progress/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/georgeOsdDev/react-fileupload-progress">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="react-fileupload-progress--" class="anchor" href="#react-fileupload-progress--" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-fileupload-progress <a href="https://travis-ci.org/georgeOsdDev/react-fileupload-progress"><img src="https://travis-ci.org/georgeOsdDev/react-fileupload-progress.svg?branch=develop" alt="Build Status"></a> <a href="http://badge.fury.io/js/react-fileupload-progress"><img src="https://badge.fury.io/js/react-fileupload-progress.svg" alt="npm version"></a>
+</h1>
+
+<p><a href="https://gyazo.com/581f05bc048cd38ea8e5a2f535b17bed"><img src="https://i.gyazo.com/581f05bc048cd38ea8e5a2f535b17bed.gif" alt="Gyazo"></a></p>
+
+<p>React component of Input file and progress bar.
+This component watch xhr uploading process, and trigger some events.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight highlight-source-shell"><pre>npm install --save react-fileupload-progress</pre></div>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<h3>
+<a id="fileuploadprogress" class="anchor" href="#fileuploadprogress" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>FileUploadProgress</code>
+</h3>
+
+<h4>
+<a id="props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h4>
+
+<ul>
+<li>
+<code>url</code>: File upload endpoint url.
+<code>React.PropTypes.string.isRequired</code>
+</li>
+</ul>
+
+<h5>
+<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h5>
+
+<p>These handler will called on XMLHttpRequest's progress events.
+  See also <a href="https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">Using XMLHttpRequest on MDN</a>.</p>
+
+<ul>
+<li><p><code>onProgress</code>: Called when <code>xhr</code> was loaded. Third parameter is the progress of uploading process(0 ~ 100).
+<code>React.PropTypes.func(e, request, progress)</code></p></li>
+<li><p><code>onLoad</code>: Called when <code>xhr</code> was loaded.
+<code>React.PropTypes.func(e, request)</code></p></li>
+<li><p><code>onError</code>: Called when <code>xhr</code> become error.
+<code>React.PropTypes.func(e, request)</code></p></li>
+<li><p><code>onAbort</code>: Called when <code>xhr</code> was aborted.
+<code>React.PropTypes.func(e, request)</code></p></li>
+</ul>
+
+<h5>
+<a id="customization" class="anchor" href="#customization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customization</h5>
+
+<p>It is possible to customize view and form.</p>
+
+<ul>
+<li><p><code>formRnederer</code>: For custom form rendering,
+<code>onSubmitHandler</code> should be attach on your custom form's submit event. When <code>onSubmitHandler</code> is called, this component start observe <code>xhr</code>.
+<code>React.PropTypes.func(onSubmitHandler)</code></p></li>
+<li><p><code>formGetter</code>: If custom <code>formRenderer</code> is used, you need to implement this method and must return <code>FormData</code> object.
+<code>React.PropTypes.func =&gt; {return form}</code></p></li>
+<li><p><code>progressRnederer</code>: For custom progress rendering,
+First parameter is the progress of uploading process(0 ~ 100).
+If <code>xhr</code> has error, second parameter will be <code>true</code>.
+When third parameter is called, current <code>xhr</code> will be aborted.
+<code>React.PropTypes.func(progress, hasError, cancelHandler)</code></p></li>
+<li><p><code>formCustomizer</code>: Called before <code>xhr</code> send. You can add any custom form parameter(e.g: id, name, etc) with this method. Must return <code>form</code> given as argument.
+<code>React.PropTypes.func(form) =&gt; {return form}</code></p></li>
+<li><p><code>beforeSend</code>: Called before <code>xhr</code> send. You can customize <code>xhr</code>(e.g: HTTPHeader, etc) with this method. Must return <code>request</code> given as argument.
+<code>React.PropTypes.func(request) =&gt; {return request}</code></p></li>
+</ul>
+
+<p><a href="https://gyazo.com/f6428f29681c9aab16fc62771bb1980d"><img src="https://i.gyazo.com/f6428f29681c9aab16fc62771bb1980d.gif" alt="Gyazo"></a></p>
+
+<h2>
+<a id="usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage example</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">import</span> React <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> FileUploadProgress  <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>fileUploadProgress<span class="pl-pds">'</span></span>;
+
+
+<span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">extends</span> <span class="pl-en">React.Component</span> {
+  <span class="pl-en">constructor</span>(<span class="pl-smi">props</span>) {
+    <span class="pl-v">super</span>(props);
+  }
+  <span class="pl-en">render</span>() {
+    <span class="pl-k">return</span> (
+      <span class="pl-k">&lt;</span>div<span class="pl-k">&gt;</span>
+        <span class="pl-k">&lt;</span>h3<span class="pl-k">&gt;</span>Default style<span class="pl-k">&lt;/</span>h3<span class="pl-k">&gt;</span>
+        <span class="pl-k">&lt;</span>FileUploadProgress key<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>ex1<span class="pl-pds">'</span></span> url<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>http://localhost:3000/api/upload<span class="pl-pds">'</span></span>
+          onProgress<span class="pl-k">=</span>{(<span class="pl-smi">e</span>, <span class="pl-smi">request</span>, <span class="pl-smi">progress</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>progress<span class="pl-pds">'</span></span>, e, request, progress);}}
+          <span class="pl-c1">onLoad</span><span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>load<span class="pl-pds">'</span></span>, e, request);}}
+          <span class="pl-c1">onError</span><span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, e, request);}}
+          <span class="pl-c1">onAbort</span><span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>abort<span class="pl-pds">'</span></span>, e, request);}}
+          <span class="pl-k">/&gt;</span>
+      <span class="pl-k">&lt;/</span>div<span class="pl-k">&gt;</span>
+    )
+  }
+};
+
+React.render(<span class="pl-k">&lt;</span>App<span class="pl-k">/&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>out<span class="pl-pds">'</span></span>));</pre></div>
+
+<p>See also <a href="https://github.com/georgeOsdDev/react-fileupload-progress/tree/develop/example">example</a></p>
+
+<div class="highlight highlight-source-shell"><pre>npm install
+npm run start:example
+
+<span class="pl-c"># Start backend server on another terminal</span>
+<span class="pl-c1">cd</span> example <span class="pl-k">&amp;&amp;</span> node server.js</pre></div>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<div class="highlight highlight-source-shell"><pre>npm <span class="pl-c1">test</span></pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/georgeOsdDev">georgeOsdDev</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

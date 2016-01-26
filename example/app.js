@@ -168,7 +168,7 @@ class App extends React.Component {
           onError={ (e, request) => {console.log('error', e, request);}}
           onAbort={ (e, request) => {console.log('abort', e, request);}}
           formGetter={this.formGetter.bind(this)}
-          formRnederer={this.customFormRenderer.bind(this)}
+          formRenderer={this.customFormRenderer.bind(this)}
           progressRnederer={this.customProgressRenderer.bind(this)}
           />
 

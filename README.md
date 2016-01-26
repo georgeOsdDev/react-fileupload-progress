@@ -41,7 +41,7 @@ npm install --save react-fileupload-progress
 
   It is possible to customize view and form.
 
-* `formRnederer`: For custom form rendering,
+* `formRenderer`: For custom form rendering,
   `onSubmitHandler` should be attach on your custom form's submit event. When `onSubmitHandler` is called, this component start observe `xhr`.
   `React.PropTypes.func(onSubmitHandler)`
 

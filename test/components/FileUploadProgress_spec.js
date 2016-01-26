@@ -18,7 +18,7 @@ describe('Test of FileUploadProgress', () => {
     expect(component.props.onError).to.be.a('function');
     expect(component.props.onAbort).to.be.a('function');
     expect(component.props.formGetter).to.be.a('undefined');
-    expect(component.props.formRnederer).to.be.a('function');
+    expect(component.props.formRenderer).to.be.a('function');
     expect(component.props.progressRnederer).to.be.a('function');
     expect(component.props.formCustomizer).to.be.a('function');
     expect(component.props.beforeSend).to.be.a('function');
@@ -61,7 +61,7 @@ describe('Test of FileUploadProgress', () => {
 
       component = TestUtils.renderIntoDocument(
         <FileUploadProgress url='https://localhost.com/api'
-                            formRnederer={customFormRenderer} />);
+                            formRenderer={customFormRenderer} />);
 
         let form = TestUtils.findRenderedDOMComponentWithTag(component, 'form');
         expect(React.findDOMNode(form).method).to.be.eql('get');

@@ -76,7 +76,7 @@ class FileUploadProgress extends React.Component {
   }
 
   render() {
-    let formElement = this.props.formRnederer(this.onSubmit.bind(this));
+    let formElement = this.props.formRenderer(this.onSubmit.bind(this));
     let progessElement = this.props.progressRnederer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
 
     return (
@@ -154,7 +154,7 @@ class FileUploadProgress extends React.Component {
 FileUploadProgress.propTypes = {
   url: React.PropTypes.string.isRequired,
   formGetter: React.PropTypes.func,
-  formRnederer: React.PropTypes.func,
+  formRenderer: React.PropTypes.func,
   progressRnederer: React.PropTypes.func,
   formCustomizer: React.PropTypes.func,
   beforeSend: React.PropTypes.func,
@@ -165,7 +165,7 @@ FileUploadProgress.propTypes = {
 };
 
 FileUploadProgress.defaultProps = {
-  formRnederer: (onSubmit) => {
+  formRenderer: (onSubmit) => {
     return (
       <form className='_react_fileupload_form_content' ref='form' method='post' onSubmit={onSubmit}>
         <div>

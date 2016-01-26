@@ -41,7 +41,7 @@ npm install --save react-fileupload-progress
 
   It is possible to customize view and form.
 
-* `formRnederer`: For custom form rendering,
+* `formRenderer`: For custom form rendering, **Typo is fixed(#4) from v0.2.0**
   `onSubmitHandler` should be attach on your custom form's submit event. When `onSubmitHandler` is called, this component start observe `xhr`.
   `React.PropTypes.func(onSubmitHandler)`
 
@@ -99,9 +99,12 @@ See also [example](https://github.com/georgeOsdDev/react-fileupload-progress/tre
 ```bash
 npm install
 npm run start:example
+```
 
-# Start backend server on another terminal
-cd example && node server.js
+## Build
+
+```bash
+npm run build
 ```
 
 ## Tests

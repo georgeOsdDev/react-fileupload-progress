@@ -7,10 +7,10 @@ var app=express();
 var upload = multer({ dest: 'uploads/' });
 
 app.get('/',function(req,res){
-  res.sendfile("./index.html");
+  res.sendfile("./example/index.html");
 });
 app.get('/bundle.js',function(req,res){
-  res.sendfile("./bundle.js");
+  res.sendfile("./example/bundle.js");
 });
 
 app.post('/api/upload', upload.single('file'), function(req,res){

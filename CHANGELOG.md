@@ -1,5 +1,11 @@
 ## Change Log
 
-### Ver 0.1.1 (Next Release)
+### Ver 0.3.0 (Next Release)
+
+### Ver 0.2.0
+
+  * #2 [Publish transpiled code](https://github.com/georgeOsdDev/react-fileupload-progress/issues/2)
+  * #3 [Support React-v0.14](https://github.com/georgeOsdDev/react-fileupload-progress/issues/3)
+  * #4 [Typo](https://github.com/georgeOsdDev/react-fileupload-progress/issues/4)
 
 ### Ver 0.1.0 Initial release

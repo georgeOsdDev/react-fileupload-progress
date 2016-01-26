@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react/addons';
-import FileUploadProgress  from '../index';
+import FileUploadProgress  from '../lib/index';
 
 //allow react dev tools work
 window.React = React;
@@ -168,7 +168,7 @@ class App extends React.Component {
           onError={ (e, request) => {console.log('error', e, request);}}
           onAbort={ (e, request) => {console.log('abort', e, request);}}
           formGetter={this.formGetter.bind(this)}
-          formRnederer={this.customFormRenderer.bind(this)}
+          formRenderer={this.customFormRenderer.bind(this)}
           progressRnederer={this.customProgressRenderer.bind(this)}
           />
 

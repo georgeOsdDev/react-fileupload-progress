@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react/addons';
-import FileUploadProgress  from '../index';
+import FileUploadProgress  from '../lib/index';
 
 //allow react dev tools work
 window.React = React;

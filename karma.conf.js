@@ -32,9 +32,17 @@ module.exports = function(config) {
     },
 
     browserify: {
-      debug: true,
       transform: [
-        'babelify'
+        [
+          'babelify',
+          {
+            compact: false,
+            presets: [
+              'es2015',
+              'react'
+            ]
+          }
+        ]
       ]
     },
 

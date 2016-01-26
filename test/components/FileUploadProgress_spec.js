@@ -1,10 +1,11 @@
 'use strict';
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
 import chai from 'chai';
 import sinon from 'sinon';
 let expect = chai.expect;
-import FileUploadProgress from '../../index.js';
-const {TestUtils} = React.addons;
+import FileUploadProgress from '../../src/components/FileUploadProgress';
 
 describe('Test of FileUploadProgress', () => {
   let component;
@@ -41,12 +42,12 @@ describe('Test of FileUploadProgress', () => {
         // </div>
 
         let form = TestUtils.findRenderedDOMComponentWithTag(component, 'form');
-        expect(React.findDOMNode(form).method).to.be.eql('post');
+        expect(ReactDom.findDOMNode(form).method).to.be.eql('post');
 
         let inputContent = TestUtils.scryRenderedDOMComponentsWithTag(component, 'input');
         expect(inputContent.length).to.be.eql(2);
-        expect(React.findDOMNode(inputContent[0]).type).to.be.eql('file');
-        expect(React.findDOMNode(inputContent[1]).type).to.be.eql('submit');
+        expect(ReactDom.findDOMNode(inputContent[0]).type).to.be.eql('file');
+        expect(ReactDom.findDOMNode(inputContent[1]).type).to.be.eql('submit');
     });
 
     it('use provided form renderer when specified', () => {
@@ -54,7 +55,7 @@ describe('Test of FileUploadProgress', () => {
       let customFormRenderer = (onSubmit) => {
         return (
           <form id='customForm' method='get'>
-            <button type="button" onClick={onSubmit}>Upload</button>
+            <button type='button' onClick={onSubmit}>Upload</button>
           </form>
         );
       }
@@ -64,8 +65,8 @@ describe('Test of FileUploadProgress', () => {
                             formRenderer={customFormRenderer} />);
 
         let form = TestUtils.findRenderedDOMComponentWithTag(component, 'form');
-        expect(React.findDOMNode(form).method).to.be.eql('get');
-        expect(React.findDOMNode(form).id).to.be.eql('customForm');
+        expect(ReactDom.findDOMNode(form).method).to.be.eql('get');
+        expect(ReactDom.findDOMNode(form).id).to.be.eql('customForm');
 
         let inputContent = TestUtils.scryRenderedDOMComponentsWithTag(component, 'input');
         expect(inputContent.length).to.be.eql(0);
@@ -136,7 +137,7 @@ describe('Test of FileUploadProgress', () => {
     describe('onLoad handler', () => {
       it('should handle xhr load event', () => {
         requests[0].respond(200,
-                            { "Content-Type": "application/json" },
+                            { 'Content-Type': 'application/json' },
                             '[{ "error": 0}]')
 
         expect(onProgressSpy.calledOnce).to.be.equal(true)
@@ -156,7 +157,7 @@ describe('Test of FileUploadProgress', () => {
 
     describe('onError handler', () => {
       it('should handle xhr error event', () => {
-        requests[0].dispatchEvent(new sinon.Event("error", false, false, this));
+        requests[0].dispatchEvent(new sinon.Event('error', false, false, this));
 
         expect(onErrorSpy.calledOnce).to.be.equal(true);
         let event = onErrorSpy.args[0][0];
@@ -296,8 +297,8 @@ describe('Test of FileUploadProgress', () => {
           });
           let progressBarContent = TestUtils.scryRenderedDOMComponentsWithClass(component, '_react_fileupload_progress_content');
           expect(progressBarContent.length).to.be.eql(1);
-          let progressBar = TestUtils.findRenderedDOMComponentWithClass(progressBarContent[0], '_react_fileupload_progress_bar');
-          expect(React.findDOMNode(progressBar).style.width).to.be.eql('20%');
+          let progressBar = TestUtils.findRenderedDOMComponentWithClass(component, '_react_fileupload_progress_bar');
+          expect(ReactDom.findDOMNode(progressBar).style.width).to.be.eql('20%');
         });
       });
 
@@ -310,7 +311,7 @@ describe('Test of FileUploadProgress', () => {
             loaded: 20
           });
           let progressBarContent = TestUtils.scryRenderedDOMComponentsWithClass(component, '_react_fileupload_progress_content');
-          let cancelButton = TestUtils.findRenderedDOMComponentWithClass(progressBarContent[0], '_react_fileupload_progress_cancel');
+          let cancelButton = progressBarContent[0].querySelector('._react_fileupload_progress_cancel');
           TestUtils.Simulate.click(cancelButton);
           expect(onAbortSpy.calledOnce).to.be.equal(true);
           let event = onAbortSpy.args[0][0];
@@ -402,7 +403,7 @@ describe('Test of FileUploadProgress', () => {
         it('pass hasError parameter to custom renderer', (done) => {
           let form = TestUtils.findRenderedDOMComponentWithTag(component, 'form');
           TestUtils.Simulate.submit(form);
-          requests[0].dispatchEvent(new sinon.Event("error", false, false, this));
+          requests[0].dispatchEvent(new sinon.Event('error', false, false, this));
 
           let customProgress = TestUtils.scryRenderedDOMComponentsWithClass(component, 'customProgress');
           expect(customProgress.length).to.be.eql(1);
@@ -431,8 +432,8 @@ describe('Test of FileUploadProgress', () => {
             total: 100,
             loaded: 20
           });
-          let customProgress = TestUtils.scryRenderedDOMComponentsWithClass(component, 'customProgress');
-          let cancelButton = TestUtils.findRenderedDOMComponentWithClass(customProgress[0], 'canceler');
+          let progressBarContent = TestUtils.scryRenderedDOMComponentsWithClass(component, 'customProgress');
+          let cancelButton = progressBarContent[0].querySelector('.canceler');
           TestUtils.Simulate.click(cancelButton);
           expect(onAbortSpy.calledOnce).to.be.equal(true);
           let event = onAbortSpy.args[0][0];

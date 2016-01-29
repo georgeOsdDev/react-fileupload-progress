@@ -75,8 +75,12 @@ class FileUploadProgress extends React.Component {
     }, this._doUpload);
   }
 
+  onFileClick(){
+    this.refs.input.click();
+  }
+
   render() {
-    let formElement = this.props.formRenderer(this.onSubmit.bind(this));
+    let formElement = this.props.formRenderer(this.onSubmit.bind(this), this.onFileClick.bind(this));
     let progessElement = this.props.progressRnederer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
 
     return (

@@ -101,11 +101,12 @@ class App extends React.Component {
     return new FormData(document.getElementById('customForm'));
   }
 
-  customFormRenderer(onSubmit){
+  customFormRenderer(onSubmit, onFileClick){
     return (
       <form id='customForm' style={{marginBottom: '15px'}}>
         <label style={styles.bslabel} htmlFor="exampleInputFile">File input</label>
-        <input style={{display: 'block'}} type="file" name='file' id="exampleInputFile" />
+        <button type="button" style={styles.bsButton} onClick={onFileClick}>Choose File</button>
+        <input ref='input' style={{display: 'none'}} type="file" name='file' id="exampleInputFile" />
         <p style={styles.bsHelp}>This is custom form.</p>
         <button type="button" style={styles.bsButton} onClick={onSubmit}>Upload</button>
       </form>

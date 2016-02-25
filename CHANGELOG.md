@@ -1,6 +1,11 @@
 ## Change Log
 
-### Ver 0.3.0 (Next Release)
+### Ver 0.4.0 (Next Release)
+
+### Ver 0.3.0
+
+  * #8 [Take any 2xx request as successful](https://github.com/georgeOsdDev/react-fileupload-progress/pull/8)
+  * #6 [Typo progressRenderer](https://github.com/georgeOsdDev/react-fileupload-progress/issues/6)
 
 ### Ver 0.2.0
 

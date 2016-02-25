@@ -20,7 +20,7 @@ describe('Test of FileUploadProgress', () => {
     expect(component.props.onAbort).to.be.a('function');
     expect(component.props.formGetter).to.be.a('undefined');
     expect(component.props.formRenderer).to.be.a('function');
-    expect(component.props.progressRnederer).to.be.a('function');
+    expect(component.props.progressRenderer).to.be.a('function');
     expect(component.props.formCustomizer).to.be.a('function');
     expect(component.props.beforeSend).to.be.a('function');
   });
@@ -351,7 +351,7 @@ describe('Test of FileUploadProgress', () => {
         component = TestUtils.renderIntoDocument(
           <FileUploadProgress url='https://localhost.com/api'
             onAbort={onAbortSpy}
-            progressRnederer={customProgressRenderer}/>);
+            progressRenderer={customProgressRenderer}/>);
       });
 
       afterEach(() => {

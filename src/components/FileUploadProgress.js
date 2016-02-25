@@ -102,14 +102,14 @@ class FileUploadProgress extends React.Component {
     req.addEventListener('load', (e) =>{
       this.proxy.removeAllListeners(['abort']);
       let newState = {progress: 100};
-      if (req.status !== 200) {
+      if (req.status >= 200 && req.status <= 299) {
+        this.setState(newState, () => {
+          this.props.onLoad(e, req);
+        });
+      } else {
         newState.hasError = true;
         this.setState(newState, () => {
           this.props.onError(e, req);
-        });
-      } else {
-        this.setState(newState, () => {
-          this.props.onLoad(e, req);
         });
       }
     }, false);

@@ -77,7 +77,7 @@ class FileUploadProgress extends React.Component {
 
   render() {
     let formElement = this.props.formRenderer(this.onSubmit.bind(this));
-    let progessElement = this.props.progressRnederer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
+    let progessElement = this.props.progressRenderer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
 
     return (
       <div>
@@ -155,7 +155,7 @@ FileUploadProgress.propTypes = {
   url: React.PropTypes.string.isRequired,
   formGetter: React.PropTypes.func,
   formRenderer: React.PropTypes.func,
-  progressRnederer: React.PropTypes.func,
+  progressRenderer: React.PropTypes.func,
   formCustomizer: React.PropTypes.func,
   beforeSend: React.PropTypes.func,
   onProgress: React.PropTypes.func,
@@ -175,7 +175,7 @@ FileUploadProgress.defaultProps = {
       </form>
     )
   },
-  progressRnederer: (progress, hasError, cancelHandler) => {
+  progressRenderer: (progress, hasError, cancelHandler) => {
     if (hasError || progress > -1 ) {
       let barStyle = objectAssign({}, styles.progressBar);
       barStyle.width = progress + '%';

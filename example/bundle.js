@@ -249,7 +249,7 @@ var App = function (_React$Component) {
           },
           formGetter: this.formGetter.bind(this),
           formRenderer: this.customFormRenderer.bind(this),
-          progressRnederer: this.customProgressRenderer.bind(this)
+          progressRenderer: this.customProgressRenderer.bind(this)
         })
       );
     }
@@ -396,7 +396,7 @@ var FileUploadProgress = function (_React$Component) {
     key: 'render',
     value: function render() {
       var formElement = this.props.formRenderer(this.onSubmit.bind(this));
-      var progessElement = this.props.progressRnederer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
+      var progessElement = this.props.progressRenderer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
 
       return _react2.default.createElement('div', null, formElement, progessElement);
     }
@@ -475,7 +475,7 @@ FileUploadProgress.propTypes = {
   url: _react2.default.PropTypes.string.isRequired,
   formGetter: _react2.default.PropTypes.func,
   formRenderer: _react2.default.PropTypes.func,
-  progressRnederer: _react2.default.PropTypes.func,
+  progressRenderer: _react2.default.PropTypes.func,
   formCustomizer: _react2.default.PropTypes.func,
   beforeSend: _react2.default.PropTypes.func,
   onProgress: _react2.default.PropTypes.func,
@@ -488,7 +488,7 @@ FileUploadProgress.defaultProps = {
   formRenderer: function formRenderer(onSubmit) {
     return _react2.default.createElement('form', { className: '_react_fileupload_form_content', ref: 'form', method: 'post', onSubmit: onSubmit }, _react2.default.createElement('div', null, _react2.default.createElement('input', { type: 'file', name: 'file' })), _react2.default.createElement('input', { type: 'submit' }));
   },
-  progressRnederer: function progressRnederer(progress, hasError, cancelHandler) {
+  progressRenderer: function progressRenderer(progress, hasError, cancelHandler) {
     if (hasError || progress > -1) {
       var barStyle = (0, _objectAssign2.default)({}, styles.progressBar);
       barStyle.width = progress + '%';

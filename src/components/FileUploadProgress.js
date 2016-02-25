@@ -2,6 +2,7 @@
 
 import {EventEmitter} from 'events';
 import React from 'react';
+import ReactDom from 'react-dom';
 import objectAssign from 'object-assign';
 
 const styles = {
@@ -91,7 +92,7 @@ class FileUploadProgress extends React.Component {
     if (this.props.formGetter) {
       return this.props.formGetter();
     }
-    return new FormData(React.findDOMNode(this.refs.form));
+    return new FormData(ReactDom.findDOMNode(this.refs.form));
   }
 
   _doUpload() {

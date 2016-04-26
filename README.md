@@ -69,7 +69,7 @@ npm install --save react-fileupload-progress
 'use strict';
 
 import React from 'react';
-import FileUploadProgress  from 'fileUploadProgress';
+import FileUploadProgress  from 'react-fileupload-progress';
 
 
 class App extends React.Component {

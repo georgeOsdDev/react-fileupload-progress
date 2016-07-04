@@ -1,6 +1,6 @@
 {
   "name": "react-fileupload-progress",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "React component which render progress of fileupload",
   "main": "./lib/index.js",
   "scripts": {
@@ -53,13 +53,14 @@
     "multer": "^1.1.0",
     "react-addons-test-utils": "^0.14.6",
     "rimraf": "^2.5.1",
-    "sinon": "^1.17.2",
+    "sinon": "^1.17.4",
     "watchify": "^3.7.0"
   },
   "dependencies": {
+    "object-assign": "^4.0.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "object-assign": "^4.0.1"
+    "sinon": "^1.17.4"
   },
   "peerDependencies": {
     "react": "^0.14.6",

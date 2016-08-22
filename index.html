@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -29,7 +29,7 @@
       </header>
       <section>
         <h1>
-<a id="react-fileupload-progress--" class="anchor" href="#react-fileupload-progress--" aria-hidden="true"><span class="octicon octicon-link"></span></a>React-fileupload-progress <a href="https://travis-ci.org/georgeOsdDev/react-fileupload-progress"><img src="https://travis-ci.org/georgeOsdDev/react-fileupload-progress.svg?branch=develop" alt="Build Status"></a> <a href="http://badge.fury.io/js/react-fileupload-progress"><img src="https://badge.fury.io/js/react-fileupload-progress.svg" alt="npm version"></a>
+<a id="react-fileupload-progress--" class="anchor" href="#react-fileupload-progress--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>React-fileupload-progress <a href="https://travis-ci.org/georgeOsdDev/react-fileupload-progress"><img src="https://travis-ci.org/georgeOsdDev/react-fileupload-progress.svg?branch=develop" alt="Build Status"></a> <a href="http://badge.fury.io/js/react-fileupload-progress"><img src="https://badge.fury.io/js/react-fileupload-progress.svg" alt="npm version"></a>
 </h1>
 
 <p><a href="https://gyazo.com/581f05bc048cd38ea8e5a2f535b17bed"><img src="https://i.gyazo.com/581f05bc048cd38ea8e5a2f535b17bed.gif" alt="Gyazo"></a></p>
@@ -38,19 +38,19 @@
 This component watch xhr uploading process, and trigger some events.</p>
 
 <h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
 <div class="highlight highlight-source-shell"><pre>npm install --save react-fileupload-progress</pre></div>
 
 <h2>
-<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h2>
 
 <h3>
-<a id="fileuploadprogress" class="anchor" href="#fileuploadprogress" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>FileUploadProgress</code>
+<a id="fileuploadprogress" class="anchor" href="#fileuploadprogress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>FileUploadProgress</code>
 </h3>
 
 <h4>
-<a id="props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h4>
+<a id="props" class="anchor" href="#props" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Props</h4>
 
 <ul>
 <li>
@@ -60,7 +60,7 @@ This component watch xhr uploading process, and trigger some events.</p>
 </ul>
 
 <h5>
-<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h5>
+<a id="events" class="anchor" href="#events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Events</h5>
 
 <p>These handler will called on XMLHttpRequest's progress events.
   See also <a href="https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">Using XMLHttpRequest on MDN</a>.</p>
@@ -77,17 +77,17 @@ This component watch xhr uploading process, and trigger some events.</p>
 </ul>
 
 <h5>
-<a id="customization" class="anchor" href="#customization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customization</h5>
+<a id="customization" class="anchor" href="#customization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customization</h5>
 
 <p>It is possible to customize view and form.</p>
 
 <ul>
-<li><p><code>formRnederer</code>: For custom form rendering,
+<li><p><code>formRenderer</code>: For custom form rendering, <strong>Typo is fixed(#4) from v0.2.0</strong>
 <code>onSubmitHandler</code> should be attach on your custom form's submit event. When <code>onSubmitHandler</code> is called, this component start observe <code>xhr</code>.
 <code>React.PropTypes.func(onSubmitHandler)</code></p></li>
 <li><p><code>formGetter</code>: If custom <code>formRenderer</code> is used, you need to implement this method and must return <code>FormData</code> object.
 <code>React.PropTypes.func =&gt; {return form}</code></p></li>
-<li><p><code>progressRnederer</code>: For custom progress rendering,
+<li><p><code>progressRenderer</code>: For custom progress rendering,
 First parameter is the progress of uploading process(0 ~ 100).
 If <code>xhr</code> has error, second parameter will be <code>true</code>.
 When third parameter is called, current <code>xhr</code> will be aborted.
@@ -101,45 +101,47 @@ When third parameter is called, current <code>xhr</code> will be aborted.
 <p><a href="https://gyazo.com/f6428f29681c9aab16fc62771bb1980d"><img src="https://i.gyazo.com/f6428f29681c9aab16fc62771bb1980d.gif" alt="Gyazo"></a></p>
 
 <h2>
-<a id="usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage example</h2>
+<a id="usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage example</h2>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
 
-<span class="pl-k">import</span> React <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
-<span class="pl-k">import</span> FileUploadProgress  <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>fileUploadProgress<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">FileUploadProgress</span>  <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-fileupload-progress<span class="pl-pds">'</span></span>;
 
 
-<span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">extends</span> <span class="pl-en">React.Component</span> {
+<span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">extends</span> <span class="pl-e">React</span>.<span class="pl-smi">Component</span> {
   <span class="pl-en">constructor</span>(<span class="pl-smi">props</span>) {
     <span class="pl-v">super</span>(props);
   }
   <span class="pl-en">render</span>() {
     <span class="pl-k">return</span> (
       <span class="pl-k">&lt;</span>div<span class="pl-k">&gt;</span>
-        <span class="pl-k">&lt;</span>h3<span class="pl-k">&gt;</span>Default style<span class="pl-k">&lt;/</span>h3<span class="pl-k">&gt;</span>
+        <span class="pl-k">&lt;</span>h3<span class="pl-k">&gt;</span>Default style<span class="pl-k">&lt;</span><span class="pl-k">/</span>h3<span class="pl-k">&gt;</span>
         <span class="pl-k">&lt;</span>FileUploadProgress key<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>ex1<span class="pl-pds">'</span></span> url<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>http://localhost:3000/api/upload<span class="pl-pds">'</span></span>
-          onProgress<span class="pl-k">=</span>{(<span class="pl-smi">e</span>, <span class="pl-smi">request</span>, <span class="pl-smi">progress</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>progress<span class="pl-pds">'</span></span>, e, request, progress);}}
-          <span class="pl-c1">onLoad</span><span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>load<span class="pl-pds">'</span></span>, e, request);}}
-          <span class="pl-c1">onError</span><span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, e, request);}}
-          <span class="pl-c1">onAbort</span><span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>)<span class="pl-k"> =&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>abort<span class="pl-pds">'</span></span>, e, request);}}
-          <span class="pl-k">/&gt;</span>
-      <span class="pl-k">&lt;/</span>div<span class="pl-k">&gt;</span>
+          onProgress<span class="pl-k">=</span>{(<span class="pl-smi">e</span>, <span class="pl-smi">request</span>, <span class="pl-smi">progress</span>) <span class="pl-k">=&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>progress<span class="pl-pds">'</span></span>, e, request, progress);}}
+          onLoad<span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>) <span class="pl-k">=&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>load<span class="pl-pds">'</span></span>, e, request);}}
+          onError<span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>) <span class="pl-k">=&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, e, request);}}
+          onAbort<span class="pl-k">=</span>{ (<span class="pl-smi">e</span>, <span class="pl-smi">request</span>) <span class="pl-k">=&gt;</span> {<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>abort<span class="pl-pds">'</span></span>, e, request);}}
+          <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+      <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
     )
   }
 };
 
-React.render(<span class="pl-k">&lt;</span>App<span class="pl-k">/&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>out<span class="pl-pds">'</span></span>));</pre></div>
+<span class="pl-smi">React</span>.<span class="pl-en">render</span>(<span class="pl-k">&lt;</span>App<span class="pl-k">/</span><span class="pl-k">&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>out<span class="pl-pds">'</span></span>));</pre></div>
 
 <p>See also <a href="https://github.com/georgeOsdDev/react-fileupload-progress/tree/develop/example">example</a></p>
 
 <div class="highlight highlight-source-shell"><pre>npm install
-npm run start:example
-
-<span class="pl-c"># Start backend server on another terminal</span>
-<span class="pl-c1">cd</span> example <span class="pl-k">&amp;&amp;</span> node server.js</pre></div>
+npm run start:example</pre></div>
 
 <h2>
-<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+<a id="build" class="anchor" href="#build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build</h2>
+
+<div class="highlight highlight-source-shell"><pre>npm run build</pre></div>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tests</h2>
 
 <div class="highlight highlight-source-shell"><pre>npm <span class="pl-c1">test</span></pre></div>
       </section>

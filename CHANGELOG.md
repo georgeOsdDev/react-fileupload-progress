@@ -2,6 +2,8 @@
 
 ### Ver 0.4.0 (Next Release)
 
+  * #15 [peer dependency versioning issue?](https://github.com/georgeOsdDev/react-fileupload-progress/pull/15)
+
 ### Ver 0.3.0
 
   * #8 [Take any 2xx request as successful](https://github.com/georgeOsdDev/react-fileupload-progress/pull/8)

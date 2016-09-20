@@ -28,29 +28,37 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/**/*_spec.js': ['browserify']
+      'test/**/*_spec.js': ['browserify'],
+      'src/**/*.js': ['coverage']
     },
 
     browserify: {
       transform: [
-        [
-          'babelify',
+        ['browserify-istanbul', {
+          instrumenter: require('isparta')
+        }],
+        ['babelify',
           {
             compact: false,
             presets: [
               'es2015',
-              'react'
+              'stage-2',
+              'react',
             ]
           }
-        ]
+        ],
       ]
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec'],
-
+    reporters: ['spec', 'coverage'],
+    coverageReporter: {
+      reporters: [
+        { type: 'text' }
+      ]
+    },
     // client: {
     //   mocha: {
     //     // reporter: 'html', // change Karma's debug.html to the mocha web reporter

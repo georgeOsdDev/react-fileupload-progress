@@ -1,6 +1,6 @@
 'use strict';
 
-import {EventEmitter} from 'events';
+import { EventEmitter } from 'events';
 import React from 'react';
 import ReactDom from 'react-dom';
 import objectAssign from 'object-assign';
@@ -10,12 +10,12 @@ const styles = {
     height: '10px',
     marginTop: '10px',
     width: '400px',
-    float:'left',
+    float: 'left',
     overflow: 'hidden',
     backgroundColor: '#f5f5f5',
     borderRadius: '4px',
     WebkitBoxShadow: 'inset 0 1px 2px rgba(0,0,0,.1)',
-    boxShadow: 'inset 0 1px 2px rgba(0,0,0,.1)'
+    boxShadow: 'inset 0 1px 2px rgba(0,0,0,.1)',
   },
   progressBar: {
     float: 'left',
@@ -30,7 +30,7 @@ const styles = {
     boxShadow: 'inset 0 -1px 0 rgba(0,0,0,.15)',
     WebkitTransition: 'width .6s ease',
     Otransition: 'width .6s ease',
-    transition: 'width .6s ease'
+    transition: 'width .6s ease',
   },
   cancelButton: {
     marginTop: '5px',
@@ -46,8 +46,8 @@ const styles = {
     color: '#000',
     textShadow: '0 1px 0 #fff',
     filter: 'alpha(opacity=20)',
-    opacity: '.2'
-  }
+    opacity: '.2',
+  },
 };
 
 class FileUploadProgress extends React.Component {
@@ -56,7 +56,7 @@ class FileUploadProgress extends React.Component {
     this.proxy = new EventEmitter();
     this.state = {
       progress: -1,
-      hasError: false
+      hasError: false,
     };
   }
 
@@ -64,21 +64,22 @@ class FileUploadProgress extends React.Component {
     this.proxy.emit('abort');
     this.setState({
       progress: -1,
-      hasError: false
+      hasError: false,
     });
   }
 
-  onSubmit(e){
+  onSubmit(e) {
     e.preventDefault();
     this.setState({
-      progress:0,
-      hasError: false
+      progress: 0,
+      hasError: false,
     }, this._doUpload);
   }
 
   render() {
-    let formElement = this.props.formRenderer(this.onSubmit.bind(this));
-    let progessElement = this.props.progressRenderer(this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
+    const formElement = this.props.formRenderer(this.onSubmit.bind(this));
+    const progessElement = this.props.progressRenderer(
+                            this.state.progress, this.state.hasError, this.cancelUpload.bind(this));
 
     return (
       <div>
@@ -96,13 +97,13 @@ class FileUploadProgress extends React.Component {
   }
 
   _doUpload() {
-    let form = this._getFormData();
-    let req = new XMLHttpRequest();
+    const form = this._getFormData();
+    const req = new XMLHttpRequest();
     req.open('POST', this.props.url);
 
-    req.addEventListener('load', (e) =>{
+    req.addEventListener('load', (e) => {
       this.proxy.removeAllListeners(['abort']);
-      let newState = {progress: 100};
+      const newState = { progress: 100 };
       if (req.status >= 200 && req.status <= 299) {
         this.setState(newState, () => {
           this.props.onLoad(e, req);
@@ -115,9 +116,9 @@ class FileUploadProgress extends React.Component {
       }
     }, false);
 
-    req.addEventListener('error', (e) =>{
+    req.addEventListener('error', (e) => {
       this.setState({
-        hasError: true
+        hasError: true,
       }, () => {
         this.props.onError(e, req);
       });
@@ -126,10 +127,10 @@ class FileUploadProgress extends React.Component {
     req.upload.addEventListener('progress', (e) => {
       let progress = 0;
       if (e.total !== 0) {
-        progress = parseInt((e.loaded / e.total) * 100);
+        progress = parseInt((e.loaded / e.total) * 100, 10);
       }
       this.setState({
-        progress: progress
+        progress,
       }, () => {
         this.props.onProgress(e, req, progress);
       });
@@ -137,10 +138,10 @@ class FileUploadProgress extends React.Component {
 
     req.addEventListener('abort', (e) => {
       this.setState({
-        progress: -1
+        progress: -1,
       }, () => {
         this.props.onAbort(e, req);
-      })
+      });
     }, false);
 
     this.proxy.once('abort', () => {
@@ -162,53 +163,55 @@ FileUploadProgress.propTypes = {
   onProgress: React.PropTypes.func,
   onLoad: React.PropTypes.func,
   onError: React.PropTypes.func,
-  onAbort: React.PropTypes.func
+  onAbort: React.PropTypes.func,
 };
 
 FileUploadProgress.defaultProps = {
-  formRenderer: (onSubmit) => {
-    return (
-      <form className='_react_fileupload_form_content' ref='form' method='post' onSubmit={onSubmit}>
+  formRenderer: (onSubmit) => (
+      <form className="_react_fileupload_form_content" ref="form" method="post" onSubmit={onSubmit}>
         <div>
-          <input type='file' name='file' />
+          <input type="file" name="file"/>
         </div>
-        <input type='submit' />
+        <input type="submit"/>
       </form>
-    )
-  },
+    ),
+
   progressRenderer: (progress, hasError, cancelHandler) => {
-    if (hasError || progress > -1 ) {
-      let barStyle = objectAssign({}, styles.progressBar);
-      barStyle.width = progress + '%';
+    if (hasError || progress > -1) {
+      const barStyle = objectAssign({}, styles.progressBar);
+      barStyle.width = `${progress}%`;
 
       let message = (<span>Uploading ...</span>);
       if (hasError) {
         barStyle.backgroundColor = '#d9534f';
-        message = (<span style={{'color': '#a94442'}}>Failed to upload ...</span>);
+        message = (<span style={{ color: '#a94442' }}>Failed to upload ...</span>);
       }
-      if (progress === 100){
+      if (progress === 100) {
         message = (<span >Successfully uploaded</span>);
       }
 
       return (
-        <div className='_react_fileupload_progress_content'>
+        <div className="_react_fileupload_progress_content">
           <div style={styles.progressWrapper}>
-            <div className='_react_fileupload_progress_bar' style={barStyle}></div>
+            <div className="_react_fileupload_progress_bar" style={barStyle}></div>
           </div>
-          <button className='_react_fileupload_progress_cancel' style={styles.cancelButton} onClick={cancelHandler}>
+          <button
+              className="_react_fileupload_progress_cancel"
+              style={styles.cancelButton}
+              onClick={cancelHandler}>
             <span>&times;</span>
           </button>
-          <div style={{'clear':'left'}}>
+          <div style={{ clear: 'left' }}>
             {message}
           </div>
         </div>
       );
-    } else {
-      return;
     }
+    return '';
   },
-  formCustomizer: (form) => {return form;},
-  beforeSend: (request) => {return request;},
+
+  formCustomizer: (form) => form,
+  beforeSend: (request) => request,
   onProgress: (e, request, progress) => {},
   onLoad: (e, request) => {},
   onError: (e, request) => {},

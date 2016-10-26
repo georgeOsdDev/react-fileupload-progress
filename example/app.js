@@ -1,6 +1,7 @@
 'use strict';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import FileUploadProgress  from '../lib/index';
 
 //allow react dev tools work
@@ -177,4 +178,4 @@ class App extends React.Component {
   }
 };
 
-React.render(<App/>, document.getElementById('out'));
+ReactDOM.render(<App/>, document.getElementById('out'));

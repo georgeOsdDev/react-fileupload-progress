@@ -2,6 +2,7 @@
 
 import { EventEmitter } from 'events';
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDom from 'react-dom';
 import objectAssign from 'object-assign';
 
@@ -154,16 +155,16 @@ class FileUploadProgress extends React.Component {
 }
 
 FileUploadProgress.propTypes = {
-  url: React.PropTypes.string.isRequired,
-  formGetter: React.PropTypes.func,
-  formRenderer: React.PropTypes.func,
-  progressRenderer: React.PropTypes.func,
-  formCustomizer: React.PropTypes.func,
-  beforeSend: React.PropTypes.func,
-  onProgress: React.PropTypes.func,
-  onLoad: React.PropTypes.func,
-  onError: React.PropTypes.func,
-  onAbort: React.PropTypes.func,
+  url: PropTypes.string.isRequired,
+  formGetter: PropTypes.func,
+  formRenderer: PropTypes.func,
+  progressRenderer: PropTypes.func,
+  formCustomizer: PropTypes.func,
+  beforeSend: PropTypes.func,
+  onProgress: PropTypes.func,
+  onLoad: PropTypes.func,
+  onError: PropTypes.func,
+  onAbort: PropTypes.func,
 };
 
 FileUploadProgress.defaultProps = {

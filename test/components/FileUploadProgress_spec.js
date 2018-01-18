@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import ReactDom from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import chai from 'chai';
 import sinon from 'sinon';
 let expect = chai.expect;

@@ -1,6 +1,10 @@
 ## Change Log
 
-### Ver 0.4.0 (Next Release)
+### Ver 0.4.1
+
+  * #23, #25 [Support React 16.x](https://github.com/georgeOsdDev/react-fileupload-progress/pull/25)
+
+### Ver 0.4.0
 
   * #15 [peer dependency versioning issue?](https://github.com/georgeOsdDev/react-fileupload-progress/pull/15)
 

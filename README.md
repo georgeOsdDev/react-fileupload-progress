@@ -97,7 +97,7 @@ React.render(<App/>, document.getElementById('out'));
 See also [example](https://github.com/georgeOsdDev/react-fileupload-progress/tree/develop/example)
 
 ```bash
-npm install
+npm install # or yarn
 npm run start:example
 ```
 

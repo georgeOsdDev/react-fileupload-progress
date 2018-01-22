@@ -157,7 +157,7 @@ describe('Test of FileUploadProgress', () => {
 
     describe('onError handler', () => {
       it('should handle xhr error event', () => {
-        requests[0].dispatchEvent(new sinon.Event('error', false, false, this));
+        requests[0].dispatchEvent(new Event('error', {}));
 
         expect(onErrorSpy.calledOnce).to.be.equal(true);
         let event = onErrorSpy.args[0][0];
@@ -395,7 +395,7 @@ describe('Test of FileUploadProgress', () => {
         it('pass hasError parameter to custom renderer', (done) => {
           let form = TestUtils.findRenderedDOMComponentWithTag(component, 'form');
           TestUtils.Simulate.submit(form);
-          requests[0].dispatchEvent(new sinon.Event('error', false, false, this));
+          requests[0].dispatchEvent(new Event('error', {}));
 
           let customProgress = TestUtils.scryRenderedDOMComponentsWithClass(component, 'customProgress');
           expect(customProgress.length).to.be.eql(1);

@@ -34,17 +34,14 @@ module.exports = function(config) {
 
     browserify: {
       transform: [
-        ['browserify-istanbul', {
-          instrumenter: require('isparta')
-        }],
         ['babelify',
           {
             compact: false,
             presets: [
-              'es2015',
-              'stage-2',
+              'env',
               'react',
-            ]
+            ],
+            plugins: ['istanbul']
           }
         ],
       ]

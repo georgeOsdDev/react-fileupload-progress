@@ -186,15 +186,14 @@ FileUploadProgress.defaultProps = {
       if (hasError) {
         barStyle.backgroundColor = '#d9534f';
         message = (<span style={{ color: '#a94442' }}>Failed to upload ...</span>);
-      }
-      if (progress === 100) {
+      } else if (progress === 100) {
         message = (<span >Successfully uploaded</span>);
       }
 
       return (
         <div className="_react_fileupload_progress_content">
           <div style={styles.progressWrapper}>
-            <div className="_react_fileupload_progress_bar" style={barStyle}></div>
+            <div className="_react_fileupload_progress_bar" style={barStyle}/>
           </div>
           <button
               className="_react_fileupload_progress_cancel"

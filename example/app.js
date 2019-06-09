@@ -152,7 +152,7 @@ class App extends React.Component {
 
         <h3>Default style</h3>
 
-        <FileUploadProgress key='ex1' url='http://localhost:3000/api/upload'
+        <FileUploadProgress key='ex1' url='http://localhost:3000/api/upload' method='post'
           onProgress={(e, request, progress) => {console.log('progress', e, request, progress);}}
           onLoad={ (e, request) => {console.log('load', e, request);}}
           onError={ (e, request) => {console.log('error', e, request);}}
@@ -163,7 +163,7 @@ class App extends React.Component {
 
         <h3>Custome rederer</h3>
 
-        <FileUploadProgress key='ex2' url='http://localhost:3000/api/upload'
+        <FileUploadProgress key='ex2' url='http://localhost:3000/api/upload' method='post'
           onProgress={(e, request, progress) => {console.log('progress', e, request, progress);}}
           onLoad={ (e, request) => {console.log('load', e, request);}}
           onError={ (e, request) => {console.log('error', e, request);}}

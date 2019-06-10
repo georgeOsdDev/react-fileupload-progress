@@ -19,6 +19,8 @@ npm install --save react-fileupload-progress
 
 * `url`: File upload endpoint url.
   `React.PropTypes.string.isRequired`
+* `method`: Http request method.
+  `React.PropTypes.string.isRequired`
 
 ##### Events
 

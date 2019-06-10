@@ -29,28 +29,18 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'test/**/*_spec.js': ['browserify'],
-      'src/**/*.js': ['coverage']
     },
 
     browserify: {
       transform: [
-        ['babelify',
-          {
-            compact: false,
-            presets: [
-              'env',
-              'react',
-            ],
-            plugins: ['istanbul']
-          }
-        ],
+        ['babelify'],
       ]
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec'],
     coverageReporter: {
       reporters: [
         { type: 'text' }

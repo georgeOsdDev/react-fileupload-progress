@@ -1,5 +1,11 @@
 ## Change Log
 
+### Ver 0.5.0
+
+  * #32 added http request method
+  * Update dependencies, add core-js@3
+
+
 ### Ver 0.4.2
 
   * #30, #31 [Do not show success message when request failed](https://github.com/georgeOsdDev/react-fileupload-progress/pull/31)

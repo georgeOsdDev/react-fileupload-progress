@@ -19,6 +19,8 @@ npm install --save react-fileupload-progress
 
 * `url`: File upload endpoint url.
   `React.PropTypes.string.isRequired`
+* `method`: Http request method.
+  `React.PropTypes.string.isRequired`
 
 ##### Events
 
@@ -97,7 +99,7 @@ React.render(<App/>, document.getElementById('out'));
 See also [example](https://github.com/georgeOsdDev/react-fileupload-progress/tree/develop/example)
 
 ```bash
-npm install
+npm install # or yarn
 npm run start:example
 ```
 

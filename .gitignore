@@ -1,6 +1,8 @@
+.idea
 .DS_Store
 node_modules
 npm-debug.log
 dist
 uploads
 coverage
+package-lock.json

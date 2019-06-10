@@ -2,6 +2,7 @@
 
 import { EventEmitter } from 'events';
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDom from 'react-dom';
 import objectAssign from 'object-assign';
 
@@ -99,7 +100,7 @@ class FileUploadProgress extends React.Component {
   _doUpload() {
     const form = this._getFormData();
     const req = new XMLHttpRequest();
-    req.open('POST', this.props.url);
+    req.open(this.props.method, this.props.url);
 
     req.addEventListener('load', (e) => {
       this.proxy.removeAllListeners(['abort']);
@@ -154,16 +155,17 @@ class FileUploadProgress extends React.Component {
 }
 
 FileUploadProgress.propTypes = {
-  url: React.PropTypes.string.isRequired,
-  formGetter: React.PropTypes.func,
-  formRenderer: React.PropTypes.func,
-  progressRenderer: React.PropTypes.func,
-  formCustomizer: React.PropTypes.func,
-  beforeSend: React.PropTypes.func,
-  onProgress: React.PropTypes.func,
-  onLoad: React.PropTypes.func,
-  onError: React.PropTypes.func,
-  onAbort: React.PropTypes.func,
+  url: PropTypes.string.isRequired,
+  method: PropTypes.string.isRequired,
+  formGetter: PropTypes.func,
+  formRenderer: PropTypes.func,
+  progressRenderer: PropTypes.func,
+  formCustomizer: PropTypes.func,
+  beforeSend: PropTypes.func,
+  onProgress: PropTypes.func,
+  onLoad: PropTypes.func,
+  onError: PropTypes.func,
+  onAbort: PropTypes.func,
 };
 
 FileUploadProgress.defaultProps = {
@@ -185,15 +187,14 @@ FileUploadProgress.defaultProps = {
       if (hasError) {
         barStyle.backgroundColor = '#d9534f';
         message = (<span style={{ color: '#a94442' }}>Failed to upload ...</span>);
-      }
-      if (progress === 100) {
+      } else if (progress === 100) {
         message = (<span >Successfully uploaded</span>);
       }
 
       return (
         <div className="_react_fileupload_progress_content">
           <div style={styles.progressWrapper}>
-            <div className="_react_fileupload_progress_bar" style={barStyle}></div>
+            <div className="_react_fileupload_progress_bar" style={barStyle}/>
           </div>
           <button
               className="_react_fileupload_progress_cancel"

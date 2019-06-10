@@ -1,6 +1,20 @@
 ## Change Log
 
-### Ver 0.4.0 (Next Release)
+### Ver 0.5.0
+
+  * #32 added http request method
+  * Update dependencies, add core-js@3
+
+
+### Ver 0.4.2
+
+  * #30, #31 [Do not show success message when request failed](https://github.com/georgeOsdDev/react-fileupload-progress/pull/31)
+
+### Ver 0.4.1
+
+  * #23, #25 [Support React 16.x](https://github.com/georgeOsdDev/react-fileupload-progress/pull/25)
+
+### Ver 0.4.0
 
   * #15 [peer dependency versioning issue?](https://github.com/georgeOsdDev/react-fileupload-progress/pull/15)
 

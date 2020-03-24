@@ -61,7 +61,7 @@
     "watchify": "3.11.1"
   },
   "dependencies": {
-    "babel-plugin-istanbul": "^5.1.4",
+    "babel-plugin-istanbul": "^6.0.0",
     "core-js": "3",
     "eslint-plugin-import": "^2.17.3",
     "object-assign": "^4.1.1",

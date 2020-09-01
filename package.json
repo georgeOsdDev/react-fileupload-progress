@@ -28,9 +28,9 @@
   },
   "homepage": "https://github.com/georgeosddev/react-fileupload-progress",
   "devDependencies": {
-    "@babel/cli": "7.10.5",
-    "@babel/core": "7.11.4",
-    "@babel/preset-env": "7.11.0",
+    "@babel/cli": "7.11.5",
+    "@babel/core": "7.11.5",
+    "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
     "babel-eslint": "10.1.0",
     "babelify": "10.0.0",

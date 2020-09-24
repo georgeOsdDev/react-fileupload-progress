@@ -39,7 +39,7 @@
     "chai": "4.2.0",
     "eslint": "7.9.0",
     "eslint-config-airbnb": "18.2.0",
-    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react": "7.21.1",
     "express": "4.17.1",
     "karma": "5.2.2",
     "karma-browserify": "7.0.0",

@@ -57,7 +57,7 @@
     "react-addons-test-utils": "15.6.2",
     "react-dom": "16.13.1",
     "rimraf": "3.0.2",
-    "sinon": "9.0.3",
+    "sinon": "9.1.0",
     "watchify": "3.11.1"
   },
   "dependencies": {

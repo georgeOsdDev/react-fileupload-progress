@@ -29,7 +29,7 @@
   "homepage": "https://github.com/georgeosddev/react-fileupload-progress",
   "devDependencies": {
     "@babel/cli": "7.12.8",
-    "@babel/core": "7.12.8",
+    "@babel/core": "7.12.9",
     "@babel/preset-env": "7.12.7",
     "@babel/preset-react": "7.12.7",
     "babel-eslint": "10.1.0",

@@ -36,7 +36,7 @@
     "babelify": "10.0.0",
     "browser-sync": "2.26.14",
     "browserify": "17.0.0",
-    "chai": "4.3.1",
+    "chai": "4.3.3",
     "eslint": "7.21.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-plugin-react": "7.22.0",

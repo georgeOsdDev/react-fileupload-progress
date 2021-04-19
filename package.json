@@ -63,7 +63,7 @@
   "dependencies": {
     "babel-plugin-istanbul": "^6.0.0",
     "core-js": "3",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-import": "^2.22.1",
     "object-assign": "^4.1.1",
     "prop-types": "^15.7.2",
     "sinon": "^10.0.0"

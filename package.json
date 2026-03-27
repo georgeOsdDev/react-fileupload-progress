@@ -32,7 +32,7 @@
     "@babel/core": "7.14.3",
     "@babel/preset-env": "7.14.4",
     "@babel/preset-react": "7.13.13",
-    "babel-eslint": "10.1.0",
+    "@babel/eslint-parser": "7.11.0",
     "babelify": "10.0.0",
     "browser-sync": "2.26.14",
     "browserify": "17.0.0",
